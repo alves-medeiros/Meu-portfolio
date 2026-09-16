@@ -281,11 +281,15 @@ section.projetos .flex {
     color: #fff;
     font-size:15px;
  }
-
+.titulo-projeto {
+    margin-top: 80px;
+}
 .sobre-meu-projeto h4{
     color: #f88205;
     font-size: 20px;
     margin: 15px;
+    text-align: center;
+     margin-top: 50px;
 }
 
 .sobre-meu-projeto h5{
@@ -295,3 +299,53 @@ section.projetos .flex {
     margin: 15px;
     text-align:left;
 }
+
+/* Estilo da seção de contato */
+
+.contato-conteudo {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.contato-conteudo h2 {
+    color: #f88205;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.contato-conteudo p {
+    color: #fff;
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
+.contato-conteudo .btn-social {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.contato-conteudo .btn-social button {
+    color: #000;
+    background-color: #f88205;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 300;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.contato-conteudo .btn-social button:hover {
+    box-shadow: 0 0 10px #f88205;
+    transform: scale(1.25);
+}
+
+
