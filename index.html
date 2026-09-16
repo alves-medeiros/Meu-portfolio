@@ -13,7 +13,211 @@
       <!--Fim google fonts -->
       <link rel="stylesheet" href="css/style.css" />
       <title>Jaqueline Medeiros</title>
-    </head>
+    
+<style>
+/* =========================================================
+   AJUSTES RESPONSIVOS
+   Mantém o visual original no desktop e adapta a página
+   para tablets e celulares.
+   ========================================================= */
+
+/* Evita que imagens e elementos ultrapassem a tela */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Rolagem suave entre as seções */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .interface {
+    width: 90%;
+    max-width: 1200px;
+  }
+
+  header .interface {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .flex {
+    flex-wrap: wrap;
+  }
+
+  .topo-do-site .flex {
+    align-items: center;
+  }
+
+  .txt-topo-site,
+  .img-topo-site,
+  .img-sobre,
+  .txt-sobre {
+    max-width: 100%;
+  }
+
+  .img-topo-site img,
+  .img-sobre img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .img-port {
+    max-width: 100%;
+  }
+
+  .sobre-meu-projeto {
+    max-width: 100%;
+  }
+}
+
+/* Celular */
+@media (max-width: 600px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  .interface {
+    width: 92%;
+  }
+
+  header .interface {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .logo img {
+    max-width: 180px;
+  }
+
+  .menu-desktop {
+    width: 100%;
+  }
+
+  .menu-desktop ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .menu-desktop li {
+    list-style: none;
+  }
+
+  .btn-contato {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .topo-do-site .flex,
+  .sobre .flex,
+  .projetos .flex {
+    flex-direction: column;
+  }
+
+  .txt-topo-site,
+  .img-topo-site,
+  .img-sobre,
+  .txt-sobre {
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .img-topo-site {
+    order: 2;
+  }
+
+  .txt-topo-site {
+    order: 1;
+  }
+
+  .img-sobre {
+    order: 1;
+  }
+
+  .txt-sobre {
+    order: 2;
+  }
+
+  .txt-topo-site h1 {
+    font-size: clamp(28px, 8vw, 42px);
+  }
+
+  .txt-topo-site p,
+  .txt-sobre p,
+  .sobre-meu-projeto p,
+  #contato p {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .img-topo-site img,
+  .img-sobre img {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .img-port {
+    width: 100%;
+    min-height: 220px;
+  }
+
+  .sobre-meu-projeto {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  #contato {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .btn-social {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  /* Impede textos muito longos de criarem rolagem horizontal */
+  h1, h2, h3, h4, h5, p, a {
+    overflow-wrap: break-word;
+  }
+}
+
+/* Celulares pequenos */
+@media (max-width: 400px) {
+  .interface {
+    width: 94%;
+  }
+
+  .menu-desktop ul {
+    gap: 8px;
+  }
+
+  .menu-desktop a {
+    font-size: 14px;
+  }
+
+  .img-port {
+    min-height: 190px;
+  }
+
+  .txt-topo-site h1 {
+    font-size: 28px;
+  }
+}
+</style>
+
+</head>
     <body>
       <header>
         <div class="interface">
@@ -39,7 +243,7 @@
         <!--/interface-->
       </header>
       <main>
-        <section class="topo-do-site">
+        <section id="inicio" class="topo-do-site">
           <div class="interface">
             <div class="flex">
               <div class="txt-topo-site">
@@ -64,7 +268,7 @@
           <!-- /interface -->
         </section>
         <!-- /topo-do-site -->
-        <section class="sobre">
+        <section id="sobre" class="sobre">
           <div class="interface">
             <div class="flex">
               <div class="img-sobre">
@@ -112,7 +316,7 @@
           <!-- /interface -->
         </section>
         <!-- /sobre -->
-        <section class="projetos">
+        <section id="projetos" class="projetos">
           <div class="interface">
             <h2>Meus projetos</h2>
           <div class="flex">
