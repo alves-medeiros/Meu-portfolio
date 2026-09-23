@@ -442,16 +442,6 @@ section.projetos .flex {
 }
 
 
-/* Texto do botão Início */
-.botao-inicio-flutuante span {
-    font-family: "Noto Serif", serif;
-    font-size: 15px;
-    font-weight: 400;
-    line-height: 1;
-    color: #000;
-    white-space: nowrap;
-}
-
 /* Celular */
 @media (max-width: 600px) {
 
