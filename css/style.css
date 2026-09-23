@@ -393,6 +393,7 @@ section.projetos .flex {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+   
 
     color: #000;
     background-color: #f88205;
@@ -402,7 +403,8 @@ section.projetos .flex {
     cursor: grab;
     user-select: none;
     touch-action: none;
-    text-decoration: none;
+    text-decoration:none;
+   
 
     opacity: 0;
     visibility: hidden;
@@ -419,9 +421,6 @@ section.projetos .flex {
 .botao-inicio-flutuante.visivel {
     opacity: 1;
     visibility: visible;
-
-    /* MESMO EFEITO DA IMAGEM DO TOPO */
-    animation: flutuar-botao 3s ease-in-out infinite alternate;
 }
 
 
@@ -443,13 +442,15 @@ section.projetos .flex {
 }
 
 
-/* Ícone */
-.botao-inicio-flutuante svg {
-    width: 20px;
-    height: 20px;
-  
+/* Texto do botão Início */
+.botao-inicio-flutuante span {
+    font-family: "Noto Serif", serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1;
+    color: #000;
+    white-space: nowrap;
 }
-
 
 /* Celular */
 @media (max-width: 600px) {
