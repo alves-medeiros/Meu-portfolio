@@ -217,6 +217,117 @@ html {
 }
 </style>
 
+
+<style>
+.botao-inicio-flutuante {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+  transition: opacity .3s ease, transform .3s ease, visibility .3s ease;
+}
+.botao-inicio-flutuante.visivel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+.botao-inicio-flutuante svg {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 600px) {
+  .botao-inicio-flutuante {
+    right: 16px;
+    bottom: 16px;
+    padding: 11px 14px;
+  }
+  .botao-inicio-flutuante span {
+    font-size: 14px;
+  }
+}
+</style>
+
+
+<style id="inicio-flutuante-interativo">
+.botao-inicio-flutuante {
+  position: fixed;
+  left: auto;
+  right: 24px;
+  top: auto;
+  bottom: 24px;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 48px;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 50px;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+  text-decoration: none;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(0, 15px, 0);
+  transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+  box-sizing: border-box;
+}
+
+.botao-inicio-flutuante.visivel {
+  opacity: 1;
+  visibility: visible;
+  transform: translate3d(0, 0, 0);
+}
+
+.botao-inicio-flutuante.arrastando {
+  cursor: grabbing;
+  transition: none;
+}
+
+.botao-inicio-flutuante svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+.botao-inicio-flutuante span {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .botao-inicio-flutuante {
+    right: 16px;
+    bottom: 16px;
+    padding: 11px 14px;
+  }
+
+  .botao-inicio-flutuante span {
+    font-size: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botao-inicio-flutuante {
+    transition: none;
+  }
+}
+</style>
+
 </head>
     <body>
       <header>
@@ -323,12 +434,10 @@ html {
             <div class="img-port" style="background-image: url(images/Scrum.png);">
               <div class="overlay">Scrum do zero</div>  
             </div>
-            <div class="img-port" style="background-image: url(images/Scrum.png);">
-              <div class="overlay">Scrum do zero</div>
+            <div class="img-port" style="background-image: url(images/meaga-sena.png);">
+              <div class="overlay">Consulta de concursos da Mega-Sena</div>
             </div>
-            <div class="img-port" style="background-image: url(images/Scrum.png);">
-              <div class="overlay">Scrum do zero</div>
-            </div>
+            
           </div><!-- /flex -->
           <div class="sobre-meu-projeto">
           
@@ -355,28 +464,6 @@ html {
                 dos dados de progresso entre frontend e backend, cálculo da média
                 final do usuário, funcionalidade de logout, refatoração da
                 estrutura do projeto e correção de bugs e inconsistências finais.
-              </p>
-
-              <h5>Tecnologias utilizadas</h5>
-
-              <p>HTML, CSS, JavaScript, Node.js, Express e PostgreSQL.</p>
-
-              <p>Semestre:1º semestre</p>
-
-             <h4 class="titulo-projeto">Aplicação web para cadastro de usuário</h4>
-
-              <p>
-                Aplicação web desenvolvida para realizar o cadastro, consulta,
-                listagem e exclusão de usuários.
-              </p>
-
-              <h5>Minha contribuição</h5>
-
-              <p>
-                Realizei a construção completa da aplicação, desenvolvendo a
-                interface do usuário, as funcionalidades de cadastro, listagem e
-                exclusão dos dados, além da integração entre frontend, backend e
-                banco de dados.
               </p>
 
               <h5>Tecnologias utilizadas</h5>
@@ -461,8 +548,153 @@ html {
         </div>
 
     </div>
-
+  <div class="logo-final">
+            <a href="#">
+              <img src="images/logo.png" alt="Logo Jaqueline Medeiros" />
+            </a>
 </section>
       </main>
-    </body>
+    
+<a href="#inicio" class="botao-inicio-flutuante" id="botaoInicio"
+   aria-label="Voltar ao início. Também pode ser arrastado pela página."
+   title="Arraste para mover • Clique para voltar ao início">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+    <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5A.5.5 0 0 0 8 12"/>
+  </svg>
+  <span>Início</span>
+</a>
+
+
+<script>
+const botaoInicio = document.getElementById("botaoInicio");
+
+function controlarBotaoInicio() {
+  if (window.scrollY > 250) {
+    botaoInicio.classList.add("visivel");
+  } else {
+    botaoInicio.classList.remove("visivel");
+  }
+}
+
+window.addEventListener("scroll", controlarBotaoInicio, { passive: true });
+controlarBotaoInicio();
+</script>
+
+
+<script id="inicio-flutuante-interativo-js">
+(function () {
+  const botaoInicio = document.getElementById("botaoInicio");
+  if (!botaoInicio) return;
+
+  let arrastando = false;
+  let pointerId = null;
+  let deslocamentoX = 0;
+  let deslocamentoY = 0;
+  let houveArraste = false;
+
+  function limitar(valor, minimo, maximo) {
+    return Math.min(Math.max(valor, minimo), maximo);
+  }
+
+  function mostrarBotao() {
+    if (window.scrollY > 250) {
+      botaoInicio.classList.add("visivel");
+    } else {
+      botaoInicio.classList.remove("visivel");
+    }
+  }
+
+  function iniciarArraste(event) {
+    if (event.pointerType === "mouse" && event.button !== 0) return;
+
+    const rect = botaoInicio.getBoundingClientRect();
+
+    arrastando = true;
+    houveArraste = false;
+    pointerId = event.pointerId;
+
+    deslocamentoX = event.clientX - rect.left;
+    deslocamentoY = event.clientY - rect.top;
+
+    botaoInicio.classList.add("arrastando");
+    botaoInicio.setPointerCapture(pointerId);
+
+    event.preventDefault();
+  }
+
+  function moverBotao(event) {
+    if (!arrastando || event.pointerId !== pointerId) return;
+
+    const largura = botaoInicio.offsetWidth;
+    const altura = botaoInicio.offsetHeight;
+    const margem = 8;
+
+    let esquerda = event.clientX - deslocamentoX;
+    let topo = event.clientY - deslocamentoY;
+
+    const maxEsquerda = window.innerWidth - largura - margem;
+    const maxTopo = window.innerHeight - altura - margem;
+
+    esquerda = limitar(esquerda, margem, Math.max(margem, maxEsquerda));
+    topo = limitar(topo, margem, Math.max(margem, maxTopo));
+
+    if (Math.abs(esquerda - (botaoInicio.offsetLeft || esquerda)) > 3 ||
+        Math.abs(topo - (botaoInicio.offsetTop || topo)) > 3) {
+      houveArraste = true;
+    }
+
+    botaoInicio.style.left = esquerda + "px";
+    botaoInicio.style.top = topo + "px";
+    botaoInicio.style.right = "auto";
+    botaoInicio.style.bottom = "auto";
+
+    event.preventDefault();
+  }
+
+  function terminarArraste(event) {
+    if (!arrastando || event.pointerId !== pointerId) return;
+
+    arrastando = false;
+    botaoInicio.classList.remove("arrastando");
+
+    if (botaoInicio.hasPointerCapture(pointerId)) {
+      botaoInicio.releasePointerCapture(pointerId);
+    }
+
+    pointerId = null;
+    event.preventDefault();
+  }
+
+  // Impede que um arraste seja interpretado como clique.
+  botaoInicio.addEventListener("click", function (event) {
+    if (houveArraste) {
+      event.preventDefault();
+      houveArraste = false;
+    }
+  });
+
+  botaoInicio.addEventListener("pointerdown", iniciarArraste);
+  botaoInicio.addEventListener("pointermove", moverBotao);
+  botaoInicio.addEventListener("pointerup", terminarArraste);
+  botaoInicio.addEventListener("pointercancel", terminarArraste);
+
+  // Se a janela mudar de tamanho, mantém o botão dentro da área visível.
+  window.addEventListener("resize", function () {
+    if (!botaoInicio.style.left || !botaoInicio.style.top) return;
+
+    const rect = botaoInicio.getBoundingClientRect();
+    const largura = botaoInicio.offsetWidth;
+    const altura = botaoInicio.offsetHeight;
+    const margem = 8;
+
+    botaoInicio.style.left = limitar(rect.left, margem, Math.max(margem, window.innerWidth - largura - margem)) + "px";
+    botaoInicio.style.top = limitar(rect.top, margem, Math.max(margem, window.innerHeight - altura - margem)) + "px";
+  });
+
+  window.addEventListener("scroll", mostrarBotao, { passive: true });
+  mostrarBotao();
+})();
+</script>
+
+</body>
   </html>
